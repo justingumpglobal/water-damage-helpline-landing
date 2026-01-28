@@ -1,0 +1,13 @@
+# Water Damage Restoration - Ad Groups
+# Format: service-slug | date added
+
+# Initial ad groups to create:
+# - water-damage-restoration
+# - flood-cleanup
+# - water-extraction
+# - basement-flooding
+# - burst-pipe-cleanup
+# - mold-remediation
+# - fire-damage-restoration
+
+# Created ad groups will be listed below:
