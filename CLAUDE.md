@@ -4,13 +4,11 @@ Pay-per-call landing page for water damage restoration services.
 
 ---
 
-## Project Status: Ready to Deploy
+## Project Status: LIVE
 
-**Waiting On:**
-- [x] Final brand name decision: Water Damage Helpline
-- [x] Domain: water-damage-helpline.com
-- [x] Ringba campaign: CA0a0649f7e6cf4526a9d19b4fd3b37037
-- [ ] Inquirly compliance check on "60-minute response" claim
+**Live URL:** https://water-damage-helpline.com
+**GitHub:** https://github.com/justingumpglobal/water-damage-helpline-landing
+**Deployment:** Cloudflare Pages (auto-deploy from GitHub)
 
 ---
 
@@ -22,11 +20,11 @@ Pay-per-call landing page for water damage restoration services.
 
 ### Run Commands
 ```bash
-# Deploy to Cloudflare Pages
-wrangler pages deploy .
-
 # Test locally
 python -m http.server 8000
+
+# Push changes (auto-deploys via GitHub)
+git add . && git commit -m "message" && git push
 ```
 
 ---
@@ -97,7 +95,7 @@ python -m http.server 8000
 
 **Full URL Example:**
 ```
-https://[domain]/?service=water-damage-restoration&loc_physical_ms=9003499
+https://water-damage-helpline.com/?service=water-damage-restoration&loc_physical_ms=9003499
 ```
 
 ---
@@ -124,61 +122,9 @@ water-damage/
 
 ---
 
-## Images Needed
+## Post-Launch TODO
 
-### Hero Images
-- `hero/water-damage.jpg` - Professional with extraction equipment
-- `hero/mold-remediation.jpg` - Technician in protective gear
-- `hero/fire-damage.jpg` - Fire restoration professional
-
-### Process Step Images
-- `process/call.jpg` - Phone/dispatcher
-- `process/assess.jpg` - Technician assessing damage
-- `process/restore.jpg` - Restored room/happy homeowner
-
-### Service Card Images
-- `services/water-damage.jpg` - Water extraction in progress
-- `services/flood-cleanup.jpg` - Flood cleanup crew
-- `services/mold-remediation.jpg` - Mold removal
-- `services/fire-damage.jpg` - Fire/smoke cleanup
-
-### Insurance Logos (7)
-- `insurance/state-farm.png`
-- `insurance/allstate.png`
-- `insurance/progressive.png`
-- `insurance/liberty-mutual.png`
-- `insurance/farmers.png`
-- `insurance/usaa.png`
-- `insurance/nationwide.png`
-
----
-
-## Pre-Launch Checklist
-
-### Before Going Live
-- [ ] Update phone number in index.html (currently placeholder)
-- [x] Update Ringba script with real campaign ID
-- [ ] Add all hero/process/service images
-- [x] Download and add insurance logos
-- [ ] Test all 23 service slugs load correct content
-- [ ] Test location parameter with sample geo codes
-- [ ] Verify Ringba phone swap works
-- [ ] Mobile test on iPhone and Android
-- [ ] Lighthouse score > 90
-
-### Ringba Setup
-1. Create campaign in Ringba
-2. Set "Number to Replace" to match placeholder phone
-3. Add domain to whitelist
-4. Copy campaign ID to script tag
-
----
-
-## Deployment
-
-```bash
-# From water-damage directory
-wrangler pages deploy .
-```
-
-Then configure custom domain in Cloudflare Pages dashboard.
+- [ ] Verify Ringba phone swap works on live domain
+- [ ] Mobile test on real devices
+- [ ] Set up Google Ads campaigns
+- [ ] Inquirly compliance check on "60-minute response" claim (if needed)
