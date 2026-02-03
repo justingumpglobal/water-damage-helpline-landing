@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Preload critical hero image for fast LCP -->
+  <link rel="preload" as="image" href="assets/images/hero/water-damage.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/images/hero/water-damage-optimized.jpg" type="image/jpeg">
+
   <style>
     /* ========================================
        CSS RESET & BASE
@@ -722,8 +726,14 @@
     .final-cta {
       padding: 56px 20px;
       background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
-                  url('assets/images/final_cta_background.jpg') center/cover no-repeat;
+                  url('assets/images/final_cta_background.webp') center/cover no-repeat;
       text-align: center;
+    }
+
+    /* Fallback for browsers without WebP support */
+    .no-webp .final-cta {
+      background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                  url('assets/images/final_cta_background.jpg') center/cover no-repeat;
     }
 
     .final-cta__headline {
@@ -978,12 +988,18 @@
       </div>
 
       <div class="hero__image-wrapper">
-        <img
-          src="assets/images/hero/water-damage.jpg"
-          alt="Water damage restoration professional"
-          class="hero__image"
-          data-dynamic="hero-image"
-        >
+        <picture>
+          <source srcset="assets/images/hero/water-damage.webp" type="image/webp">
+          <img
+            src="assets/images/hero/water-damage-optimized.jpg"
+            alt="Water damage restoration professional"
+            class="hero__image"
+            data-dynamic="hero-image"
+            fetchpriority="high"
+            width="1200"
+            height="1500"
+          >
+        </picture>
       </div>
     </div>
   </section>
@@ -1045,7 +1061,10 @@
       <div class="services__grid">
         <div class="services__card">
           <div class="services__card-image">
-            <img src="assets/images/services/water-damage.jpg" alt="Water damage restoration">
+            <picture>
+              <source srcset="assets/images/services/water-damage.webp" type="image/webp">
+              <img src="assets/images/services/water-damage.jpg" alt="Water damage restoration" loading="lazy">
+            </picture>
           </div>
           <div class="services__card-content">
             <h3 class="services__card-title">Water Damage</h3>
@@ -1055,7 +1074,10 @@
 
         <div class="services__card">
           <div class="services__card-image">
-            <img src="assets/images/services/flood-cleanup.jpg" alt="Flood cleanup service">
+            <picture>
+              <source srcset="assets/images/services/flood-cleanup.webp" type="image/webp">
+              <img src="assets/images/services/flood-cleanup.jpg" alt="Flood cleanup service" loading="lazy">
+            </picture>
           </div>
           <div class="services__card-content">
             <h3 class="services__card-title">Flood Cleanup</h3>
@@ -1065,7 +1087,10 @@
 
         <div class="services__card">
           <div class="services__card-image">
-            <img src="assets/images/services/mold-remediation.jpg" alt="Mold remediation">
+            <picture>
+              <source srcset="assets/images/services/mold-remediation.webp" type="image/webp">
+              <img src="assets/images/services/mold-remediation.jpg" alt="Mold remediation" loading="lazy">
+            </picture>
           </div>
           <div class="services__card-content">
             <h3 class="services__card-title">Mold Remediation</h3>
@@ -1075,7 +1100,10 @@
 
         <div class="services__card">
           <div class="services__card-image">
-            <img src="assets/images/services/fire-damage.jpg" alt="Fire damage restoration">
+            <picture>
+              <source srcset="assets/images/services/fire-damage.webp" type="image/webp">
+              <img src="assets/images/services/fire-damage.jpg" alt="Fire damage restoration" loading="lazy">
+            </picture>
           </div>
           <div class="services__card-content">
             <h3 class="services__card-title">Fire & Smoke</h3>
@@ -1094,21 +1122,30 @@
       <div class="process__steps">
         <div class="process__step">
           <div class="process__step-number">1</div>
-          <img src="assets/images/process/call.jpg" alt="Call us" class="process__step-image">
+          <picture>
+            <source srcset="assets/images/process/call.webp" type="image/webp">
+            <img src="assets/images/process/call.jpg" alt="Call us" class="process__step-image" loading="lazy">
+          </picture>
           <h3 class="process__step-title">Call Us 24/7</h3>
           <p class="process__step-text">We answer immediately and dispatch a crew to your location within 60 minutes.</p>
         </div>
 
         <div class="process__step">
           <div class="process__step-number">2</div>
-          <img src="assets/images/process/assess.jpg" alt="We assess" class="process__step-image">
+          <picture>
+            <source srcset="assets/images/process/assess.webp" type="image/webp">
+            <img src="assets/images/process/assess.jpg" alt="We assess" class="process__step-image" loading="lazy">
+          </picture>
           <h3 class="process__step-title">We Assess & Extract</h3>
           <p class="process__step-text">Our certified team evaluates damage, begins extraction, and coordinates with your insurance.</p>
         </div>
 
         <div class="process__step">
           <div class="process__step-number">3</div>
-          <img src="assets/images/process/restore.jpg" alt="Fully restored" class="process__step-image">
+          <picture>
+            <source srcset="assets/images/process/restore.webp" type="image/webp">
+            <img src="assets/images/process/restore.jpg" alt="Fully restored" class="process__step-image" loading="lazy">
+          </picture>
           <h3 class="process__step-title">Property Restored</h3>
           <p class="process__step-text">We dry, clean, and restore your property to pre-damage condition. Guaranteed.</p>
         </div>
@@ -1192,6 +1229,19 @@
 
   <!-- RINGBA TRACKING SCRIPT -->
   <script src="//b-js.ringba.com/CA0a0649f7e6cf4526a9d19b4fd3b37037" async></script>
+
+  <!-- WebP Detection -->
+  <script>
+    (function() {
+      var webP = new Image();
+      webP.onload = webP.onerror = function() {
+        if (webP.height !== 2) {
+          document.documentElement.classList.add('no-webp');
+        }
+      };
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    })();
+  </script>
 
   <script>
     (function() {
